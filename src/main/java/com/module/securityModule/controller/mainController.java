@@ -16,22 +16,24 @@ public class mainController {
     public String getMain() {
         return "main";
     }
-    
+
     @GetMapping("/user")
     public String getUser() {
         return "user";
     }
+
     @GetMapping("/admin")
     public String getAdmin() {
         return "admin";
     }
-    @GetMapping("/org")
+
+    @GetMapping("/organizer")
     public String getOrganier() {
         return "/organizer";
     }
-    
-    @GetMapping("/reg")
-    public String getReg(){
-        return "reg";
+
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
     }
 }

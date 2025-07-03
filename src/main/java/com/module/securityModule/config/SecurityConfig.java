@@ -18,12 +18,14 @@ public class SecurityConfig {
     public DefaultSecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/user", "/admin").permitAll()
+                .requestMatchers("/").permitAll()
+                .requestMatchers("/user").authenticated()
+                .requestMatchers("/organizer").hasAnyRole("ORGANIZER", "ADMIN")
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                .loginPage("/reg").permitAll()
+                .loginPage("/login").permitAll()
                 );
         return http.build();
     }
