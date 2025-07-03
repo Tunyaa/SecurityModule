@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author tunyaa
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class mainController {
 
-    @GetMapping
+    @GetMapping("/")
     public String getMain() {
         return "main";
     }
@@ -28,5 +28,10 @@ public class mainController {
     @GetMapping("/org")
     public String getOrganier() {
         return "/organizer";
+    }
+    
+    @GetMapping("/reg")
+    public String getReg(){
+        return "reg";
     }
 }
