@@ -16,4 +16,17 @@ public class mainController {
     public String getMain() {
         return "main";
     }
+    
+    @GetMapping("/user")
+    public String getUser() {
+        return "user";
+    }
+    @GetMapping("/admin")
+    public String getAdmin() {
+        return "admin";
+    }
+    @GetMapping("/org")
+    public String getOrganier() {
+        return "/organizer";
+    }
 }
