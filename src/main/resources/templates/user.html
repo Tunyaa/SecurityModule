@@ -3,7 +3,13 @@
     <body>
         <div th:insert="~{fragments/navbar :: navbar}"></div>
 
-        <h1>User</h1>
 
+        <h1>Страница пользователя</h1>
+        <p>Эта страница доступна только аутентифицированным пользователям.</p>
+        <p>Вы вошли как: <span th:text="${#authentication.name}"></span></p>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Выйти"/>
+        </form>
     </body>
 </html>

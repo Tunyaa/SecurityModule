@@ -2,8 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <body>
         <div th:insert="~{fragments/navbar :: navbar}"></div>
+        <h1>Добро пожаловать на главную страницу!</h1>
+        <p>Эта страница доступна всем пользователям.</p>
+        <div th:if="${#authentication.isAuthenticated()}">
+            <p>Вы вошли как: <span th:text="${#authentication.name}"></span></p>
 
-        <h1>Main</h1>
-
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Выйти"/>
+            </form>
+        </div>
+        <div th:unless="${#authentication.isAuthenticated()}">
+            <a href="/login">Войти</a>
+        </div>
     </body>
 </html>

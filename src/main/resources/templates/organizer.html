@@ -3,7 +3,13 @@
     <body>
         <div th:insert="~{fragments/navbar :: navbar}"></div>
 
-        <h1>Organizer</h1>
+        <h1>Страница руководителя</h1>
+        <p>Эта страница доступна только руководителю проекта.</p>
+        <p>Вы вошли как: <span th:text="${#authentication.name}"></span></p>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Выйти"/>
+        </form>
 
     </body>
 </html>
